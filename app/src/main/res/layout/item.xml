@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="person"
+            type="com.example.san4o.task_is_search_mvvm.model.Person"/>
+        <variable
+            name="listener"
+            type="com.example.san4o.task_is_search_mvvm.PersonAdapter.Listener"/>
+
+    </data>
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_person"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        card_view:cardCornerRadius="8dp"
+        card_view:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:onClick="@{view -> listener.onPersonModelClicked(person)}">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:padding="8dp"
+                android:text="@{person.name + ' ' + person.surname}" />
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:id="@+id/iv_foto"
+                android:layout_below="@+id/tv_name"
+                android:src="@{person.foto}"/>
+
+
+            <TextView
+                android:id="@+id/tv_phone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{person.phoneNumber}"
+                android:padding="8dp"
+                android:textSize="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:id="@+id/tv_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{person.mail}"
+                android:padding="8dp"
+                android:layout_below="@+id/tv_phone_number"
+                android:layout_alignParentEnd="true"/>
+
+            <TextView
+                android:id="@+id/tv_skype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{person.skype}"
+                android:padding="8dp"
+                android:layout_below="@+id/tv_mail"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</layout>
+
